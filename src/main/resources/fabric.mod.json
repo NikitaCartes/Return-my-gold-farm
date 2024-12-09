@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "return-my-gold-farm",
+  "version": "${version}",
+  "name": "Return my gold farm",
+  "description": "Make Eyeblossom glow",
+  "authors": [
+    "NikitaCartes"
+  ],
+  "contact": {
+    "homepage": "https://github.com/NikitaCartes/Return-my-gold-farm",
+    "sources": "https://github.com/NikitaCartes/Return-my-gold-farm",
+    "issues": "https://github.com/NikitaCartes/Return-my-gold-farm/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/return-my-gold-farm/icon.png",
+  "environment": "*",
+  "mixins": [
+    "return-my-gold-farm.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.16-rc.2 <=1.16-rc.6",
+    "java": ">=8"
+  }
+}
