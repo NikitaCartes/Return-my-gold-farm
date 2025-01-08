@@ -1,14 +1,14 @@
 plugins {
-    id "fabric-loom" version "1.8-SNAPSHOT"
+    id "fabric-loom" version "1.9-SNAPSHOT"
 }
 
 repositories {}
 
-archivesBaseName = "${project.mod_id}-${project.minecraft_version}"
+archivesBaseName = "${project.mod_id}"
 version = "${project.mod_version}"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 dependencies {
     // Fabric
@@ -20,7 +20,7 @@ dependencies {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
-    it.options.release.set(8)
+    it.options.release.set(21)
 }
 
 loom {

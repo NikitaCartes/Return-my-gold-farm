@@ -3,7 +3,7 @@
   "id": "return-my-gold-farm",
   "version": "${version}",
   "name": "Return my gold farm",
-  "description": "Make Eyeblossom glow",
+  "description": "Drop XP and gold from piglins even if they wasn't killed by a player",
   "authors": [
     "NikitaCartes"
   ],
@@ -20,7 +20,7 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "minecraft": ">=1.16-rc.2 <=1.16-rc.6",
-    "java": ">=8"
+    "minecraft": ">=1.21.5-alpha.25.2.a",
+    "java": ">=21"
   }
 }
