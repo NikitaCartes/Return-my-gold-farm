@@ -1,5 +1,8 @@
 # gradle
 
+remapped/
+versions/
+
 .gradle/
 build/
 out/

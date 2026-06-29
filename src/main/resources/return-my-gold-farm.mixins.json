@@ -3,7 +3,8 @@
 	"package": "xyz.nikitacartes.returnmygoldfarm.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ZombifiedPiglinEntityMixin"
+		"LivingEntityAccessor",
+		"ZombifiedPiglinMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
