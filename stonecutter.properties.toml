@@ -17,6 +17,8 @@ display_mc = "26.1-26.2"
 minecraft_version = "26.2"
 loader_version = "0.19.3"
 supported_minecraft_version = ">=26.1- <26.3"
+display_name = "[26.1-26.2]"
+supported_versions = "26.1,26.1.1,26.1.2,26.2"
 
 # ---------------------------------------------------------------------------
 # NeoForge: built against stable 26.1 (26.2 only has beta builds). The open NeoForge dependency
@@ -28,3 +30,5 @@ supported_minecraft_version = ">=26.1- <26.3"
 minecraft_version = "26.1"
 neoforge_version = "26.1.2.76"
 supported_minecraft_version = "[26.1,26.3)"
+display_name = "[26.1-26.2]"
+supported_versions = "26.1,26.1.1,26.1.2,26.2"
