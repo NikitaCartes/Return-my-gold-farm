@@ -1,16 +1,8 @@
-# Central Stonecutter properties for Return my gold farm.
-# Top-level keys apply to every node; [<loader>."<version>"] sections apply to that node only.
-# Build scripts read these via property("...") after calling properties.tags(version, loader).
-
 mod_id = "return-my-gold-farm"
 mod_version = "2.1.0"
 display_mc = "26.1"
 
-# ---------------------------------------------------------------------------
-# Fabric (build.fabric.gradle.kts).
-#   loader  https://fabricmc.net/develop/
-# ---------------------------------------------------------------------------
-
+# Fabric — loader versions: https://fabricmc.net/develop/
 [fabric."26.1"]
 minecraft_version = "26.1"
 loader_version = "0.19.3"
@@ -18,11 +10,7 @@ supported_minecraft_version = ">=26.1-"
 display_name = "[26.1+]"
 supported_versions = "26.1,26.1.1,26.1.2,26.2"
 
-# ---------------------------------------------------------------------------
-# NeoForge (build.neoforge.gradle.kts).
-#   neoforge_version  https://projects.neoforged.net/neoforged/neoforge
-# ---------------------------------------------------------------------------
-
+# NeoForge — versions: https://projects.neoforged.net/neoforged/neoforge
 [neoforge."26.1"]
 minecraft_version = "26.1"
 neoforge_version = "26.1.2.76"

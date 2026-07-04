@@ -5,7 +5,6 @@ plugins {
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
 
-// Tag this node's loader and version so [fabric."26.1"] keys resolve via bare property("...").
 stonecutter {
     val (version, loader) = current.project.split('-', limit = 2)
     properties.tags(version, loader)
@@ -79,7 +78,6 @@ publishMods {
         accessToken = curseforgeToken
         targets.forEach(minecraftVersions::add)
     }
-    // Uploads this node's jar into the single release created by the root publishGithub task.
     github {
         accessToken = githubToken
         parent(rootProject.tasks.named("publishGithub"))

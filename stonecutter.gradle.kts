@@ -6,7 +6,6 @@ plugins {
 stonecutter active "26.1-fabric"
 
 stonecutter.tasks {
-    // Sort published artifacts by version when running the aggregated publishMods.
     order("publishMods")
 }
 
