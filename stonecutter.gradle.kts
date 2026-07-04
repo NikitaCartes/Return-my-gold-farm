@@ -3,7 +3,7 @@ plugins {
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
 
-stonecutter active "26.2-fabric"
+stonecutter active "26.1-fabric"
 
 stonecutter.tasks {
     // Sort published artifacts by version when running the aggregated publishMods.

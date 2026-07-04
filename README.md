@@ -1,4 +1,4 @@
-## Return my gold farm
+## Return my XP farm
 
 Always drop experience from zombified piglins if they were angry at player.
 

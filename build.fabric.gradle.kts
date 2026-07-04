@@ -25,7 +25,6 @@ java {
 }
 
 dependencies {
-    // 26.1+ ships Mojang-mapped, so no mappings(...) line is needed.
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     implementation("net.fabricmc:fabric-loader:${property("loader_version")}")
 }
