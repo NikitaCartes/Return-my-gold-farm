@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(LivingEntity.class)
 public interface LivingEntityAccessor {
+    // A value above zero makes the mob count as player-killed.
     @Accessor("lastHurtByPlayerMemoryTime")
     void setLastHurtByPlayerMemoryTime(int value);
 }

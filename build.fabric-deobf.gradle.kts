@@ -1,6 +1,8 @@
+// Minecraft is shipped deobfuscated from 26.1 on: this node uses the no-remap Loom
+// plugin and publishes the plain jar.
+// For 1.21.11 and older, see build.fabric-obf.gradle.kts.
 plugins {
     id("java")
-    // The non-remapping Loom plugin: 26.1+ ships Mojang-mapped, so Minecraft/mods are not remapped.
     id("net.fabricmc.fabric-loom") version "1.17-SNAPSHOT"
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
@@ -14,13 +16,14 @@ repositories {
     mavenCentral()
 }
 
-base.archivesName = "${property("mod_id")}-fabric-mc${property("display_mc")}"
+val javaVersion = property("java_version").toString().toInt()
+
+base.archivesName = "${property("mod_id")}-fabric-mc${property("minecraft_version")}"
 version = property("mod_version").toString()
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
     withSourcesJar()
+    toolchain { languageVersion.set(JavaLanguageVersion.of(25)) }
 }
 
 dependencies {
@@ -30,7 +33,7 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
-    options.release.set(25)
+    options.release.set(javaVersion)
 }
 
 tasks.jar {
@@ -39,7 +42,8 @@ tasks.jar {
 
 val modExpansions = mapOf(
     "version" to project.version.toString(),
-    "supported_minecraft_version" to property("supported_minecraft_version").toString()
+    "supported_minecraft_version" to property("supported_minecraft_version").toString(),
+    "java_version" to javaVersion.toString()
 )
 
 tasks.processResources {

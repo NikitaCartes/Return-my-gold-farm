@@ -19,7 +19,8 @@
     "return-my-gold-farm.mixins.json"
   ],
   "depends": {
-    "fabricloader": "*",
-    "minecraft": "${supported_minecraft_version}"
+    "fabricloader": ">=0.15",
+    "minecraft": "${supported_minecraft_version}",
+    "java": ">=${java_version}"
   }
 }

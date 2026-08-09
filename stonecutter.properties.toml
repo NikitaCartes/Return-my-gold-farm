@@ -1,19 +1,56 @@
 mod_id = "return-my-gold-farm"
+mod_name = "Return my XP farm"
 mod_version = "2.1.0"
-display_mc = "26.1"
+
+# 1.21.5 is the floor, not a node split: MC-56653 was closed in 25w02a, which removed the
+# two vanilla ZombifiedPiglin blocks this mod restores. Up to 1.21.4 vanilla still has them,
+# so the mod would be a no-op there.
+# ZombifiedPiglin moved from ...entity.monster to ...entity.monster.zombie in 1.21.11.
+# That is a Mojang-mapping move, so it splits the NeoForge nodes only. Loom remaps Fabric
+# to intermediary, where the class id is unchanged, so one Fabric node covers the range.
 
 # Fabric — loader versions: https://fabricmc.net/develop/
+# Minecraft is shipped deobfuscated from 26.1 on. Older nodes add Mojang mappings and
+# publish the remapped jar, see build.fabric-obf.gradle.kts.
+[fabric."1.21.5"]
+minecraft_version = "1.21.5"
+loader_version = "0.19.3"
+java_version = "21"
+supported_minecraft_version = ">=1.21.5- <26.1"
+display_name = "[1.21.5 - 1.21.11]"
+supported_versions = "1.21.5,1.21.6,1.21.7,1.21.8,1.21.9,1.21.10,1.21.11"
+
 [fabric."26.1"]
 minecraft_version = "26.1"
 loader_version = "0.19.3"
+java_version = "25"
 supported_minecraft_version = ">=26.1-"
 display_name = "[26.1+]"
 supported_versions = "26.1,26.1.1,26.1.2,26.2"
 
 # NeoForge — versions: https://projects.neoforged.net/neoforged/neoforge
+# neoforge_version is the build compiled against: neoforge.mods.toml turns it into the
+# open-ended dependency range "[<neoforge_version>,)".
+[neoforge."1.21.5"]
+minecraft_version = "1.21.5"
+neoforge_version = "21.5.98"
+java_version = "21"
+supported_minecraft_version = "[1.21.5,1.21.11)"
+display_name = "[1.21.5 - 1.21.10]"
+supported_versions = "1.21.5,1.21.6,1.21.7,1.21.8,1.21.9,1.21.10"
+
+[neoforge."1.21.11"]
+minecraft_version = "1.21.11"
+neoforge_version = "21.11.45"
+java_version = "21"
+supported_minecraft_version = "[1.21.11,26.1)"
+display_name = "[1.21.11]"
+supported_versions = "1.21.11"
+
 [neoforge."26.1"]
 minecraft_version = "26.1"
 neoforge_version = "26.1.2.76"
+java_version = "25"
 supported_minecraft_version = "[26.1,)"
 display_name = "[26.1+]"
 supported_versions = "26.1,26.1.1,26.1.2,26.2"
