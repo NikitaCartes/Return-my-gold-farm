@@ -19,8 +19,6 @@ public abstract class ZombifiedPiglinMixin {
     @Unique
     private final ZombifiedPiglin piglin = (ZombifiedPiglin) (Object) this;
 
-    // 1.21.5 (25w02a) dropped both blocks below from vanilla ZombifiedPiglin, which is what
-    // broke gold farms. Each injection restores one of them verbatim.
     @Inject(method = "customServerAiStep(Lnet/minecraft/server/level/ServerLevel;)V", at = @At("RETURN"))
     private void returnMyGoldFarm$keepHurtByPlayer(ServerLevel level, CallbackInfo ci) {
         if (piglin.isAngry()) {

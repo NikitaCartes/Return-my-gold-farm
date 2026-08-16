@@ -1,12 +1,16 @@
 plugins {
     id("dev.kikugie.stonecutter")
-    id("me.modmuss50.mod-publish-plugin") version "0.8.4"
+    id("me.modmuss50.mod-publish-plugin") version "2.2.0"
 }
 
 stonecutter active "26.1-fabric"
 
 stonecutter.tasks {
     order("publishMods")
+}
+
+tasks.register<Delete>("cleanCollectedJars") {
+    delete(layout.buildDirectory.dir("libs"))
 }
 
 // One GitHub release for the whole version matrix: this root task creates it (empty),
