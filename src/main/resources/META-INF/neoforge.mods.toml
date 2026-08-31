@@ -10,7 +10,7 @@ displayName = "Return my gold farm"
 displayURL = "https://github.com/NikitaCartes/Return-my-gold-farm"
 authors = "NikitaCartes"
 description = '''
-Drop XP and gold from piglins even if they wasn't killed by a player
+Drop XP and gold from zombified piglins even if they weren't killed by a player
 '''
 logoFile = "assets/return-my-gold-farm/icon.png"
 

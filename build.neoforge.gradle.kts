@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("net.neoforged.moddev") version "2.0.141"
+    id("net.neoforged.moddev") version "2.0.147"
     id("me.modmuss50.mod-publish-plugin") version "2.2.0"
 }
 
@@ -44,12 +44,15 @@ val modExpansions = mapOf(
     "mod_id" to property("mod_id").toString(),
     "mod_name" to property("mod_name").toString(),
     "supported_minecraft_version" to property("supported_minecraft_version").toString(),
-    "neoforge_version" to property("neoforge_version").toString()
+    "neoforge_version" to property("neoforge_version").toString(),
+    "java_version" to javaVersion.toString()
 )
 
 tasks.processResources {
     inputs.properties(modExpansions)
+    exclude("fabric.mod.json")
     filesMatching("META-INF/neoforge.mods.toml") { expand(modExpansions) }
+    filesMatching("return-my-gold-farm.mixins.json") { expand(modExpansions) }
 }
 
 // Stonecutter + NeoForge: generated sources must exist before the MC artifacts are built.
@@ -58,7 +61,7 @@ tasks.named("createMinecraftArtifacts") {
 }
 
 tasks.jar {
-    from("LICENSE")
+    from(rootProject.file("LICENSE"))
 }
 
 tasks.register<Copy>("collectJars") {

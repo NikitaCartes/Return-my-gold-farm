@@ -17,12 +17,14 @@ tasks.register<Delete>("cleanCollectedJars") {
 // and every node's publishGithub uploads its jar into it via `parent`.
 publishMods {
     val githubToken = System.getenv("GITHUB_TOKEN") ?: ""
+    val modrinthToken = System.getenv("MODRINTH_TOKEN") ?: ""
+    val curseforgeToken = System.getenv("CURSEFORGE_TOKEN") ?: ""
     val modVersion = findProperty("mod_version")?.toString()
         ?: file("stonecutter.properties.toml").readLines()
             .first { it.trim().startsWith("mod_version") }
             .substringAfter('=').trim().trim('"')
 
-    dryRun = githubToken.isEmpty()
+    dryRun = githubToken.isEmpty() || modrinthToken.isEmpty() || curseforgeToken.isEmpty()
     version = modVersion
     displayName = modVersion
     changelog = rootProject.file("RELEASE_NOTE.md").readText()

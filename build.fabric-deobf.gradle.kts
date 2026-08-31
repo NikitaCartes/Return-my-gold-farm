@@ -28,13 +28,19 @@ dependencies {
     implementation("net.fabricmc:fabric-loader:${property("loader_version")}")
 }
 
+loom {
+    mixin {
+        defaultRefmapName.set("return-my-gold-farm.refmap.json")
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.release.set(javaVersion)
 }
 
 tasks.jar {
-    from("LICENSE")
+    from(rootProject.file("LICENSE"))
 }
 
 val modExpansions = mapOf(
@@ -45,8 +51,13 @@ val modExpansions = mapOf(
 
 tasks.processResources {
     inputs.properties(modExpansions)
+    exclude("META-INF/neoforge.mods.toml")
+    exclude("return-my-gold-farm.refmap.json")
     filesMatching("fabric.mod.json") { expand(modExpansions) }
+    filesMatching("return-my-gold-farm.mixins.json") { expand(modExpansions) }
 }
+
+tasks.named("compileJava") { dependsOn(tasks.named("stonecutterGenerate")) }
 
 tasks.register<Copy>("collectJars") {
     group = "build"

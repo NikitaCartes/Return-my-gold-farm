@@ -16,7 +16,7 @@ plugins {
 stonecutter {
     create(rootProject) {
         // Obfuscated Fabric
-        listOf("1.21.5").forEach { mc ->
+        listOf("1.21.5", "1.21.11").forEach { mc ->
             versions("$mc-fabric" to mc).buildscript("build.fabric-obf.gradle.kts")
         }
         // Deobfuscated Fabric
